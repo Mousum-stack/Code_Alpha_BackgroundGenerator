@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Generator</title>
+</head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #ff0000, #ffff00); /* initial colors */
+}
+
+.container {
+    text-align: center;
+}
+
+h2 {
+    margin-top: 20px;
+}
+</style>
+<body>
+    <div class="container">
+        <input type="color" id="color1" value="#ff0000">
+        <input type="color" id="color2" value="#ffff00">
+        <h2 id="gradientValue"></h2>
+    </div>
+   <script>const color1 = document.getElementById("color1");
+    const color2 = document.getElementById("color2");
+    const gradientValue = document.getElementById("gradientValue");
+    const body = document.body;
+    
+    function setGradient() {
+        body.style.background = `linear-gradient(to right, ${color1.value}, ${color2.value})`;
+        gradientValue.textContent = body.style.background + ";";
+    }
+    
+    color1.addEventListener("input", setGradient);
+    color2.addEventListener("input", setGradient);
+    
+    setGradient(); // Call it initially to set the text content
+    </script>
+</body>
+</html>
